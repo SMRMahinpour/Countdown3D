@@ -1,73 +1,117 @@
-# React + TypeScript + Vite
+# Countdown3D
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center">
+  <em>Transform Time into Stunning 3D Experiences</em>
+</p>
 
-Currently, two official plugins are available:
+<div align="center">
+  <img alt="last-commit" src="https://img.shields.io/github/last-commit/SMRMahinpour/Countdown3D?style=flat&logo=git&color=0080ff">
+  <img alt="repo-top-language" src="https://img.shields.io/github/languages/top/SMRMahinpour/Countdown3D?style=flat&color=0080ff">
+  <img alt="npm version" src="https://img.shields.io/npm/v/countdown3d?style=flat&color=0080ff">
+  <img alt="license" src="https://img.shields.io/npm/l/countdown3d?style=flat&color=0080ff">
+</div>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Overview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**Countdown3D** is a React library for creating **3D cube-based countdown timers** with smooth rotation, drag interactions, and customizable cube animations. It’s built with **TypeScript**, **React**, and **Vite**, offering modular, reusable components.
 
-## Expanding the ESLint configuration
+**Key Features:**
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- 🎨 3D cube digits with realistic rotation  
+- 🖱️ Draggable countdown with momentum effect  
+- ⚙️ Customizable start angle, cube size, spacing, and max drag  
+- 🚀 Lightweight and easy to integrate in React apps  
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Installation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Install via npm:
+
+```bash
+npm install countdown3d
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+or with yarn:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+yarn add countdown3d
 ```
+
+---
+
+## Usage
+
+### Basic Example
+
+```tsx
+import React, { useState } from "react";
+import { Countdown, DraggableWrapper } from "countdown3d";
+
+function App() {
+  const [translateX, setTranslateX] = useState(0);
+
+  return (
+    <div style={{ width: "100vw", height: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
+      <DraggableWrapper onTranslateX={setTranslateX} maxDrag={200}>
+        <Countdown
+          startSeconds={3600}
+          translateX={translateX}
+          startAngle={-10}
+          cubeSize={20}
+          spacing={3}
+        />
+      </DraggableWrapper>
+    </div>
+  );
+}
+
+export default App;
+```
+
+### Props
+
+#### `Countdown`
+
+| Prop            | Type               | Default | Description |
+|-----------------|------------------|---------|------------|
+| `startSeconds`  | `number`          | 3600    | Total countdown seconds |
+| `translateX`    | `number`          | 0       | Current horizontal drag value |
+| `startAngle`    | `number`          | 0       | Initial rotation angle of cubes |
+| `cubeSize`      | `number`          | 20      | Size of each cube in pixels |
+| `spacing`       | `number`          | 2       | Space between cubes |
+| `digitSpacing`  | `number`          | `cubeSize*3+10` | Space between digits |
+| `maxTranslate`  | `number`          | 300     | Max horizontal translation for rotation |
+
+#### `DraggableWrapper`
+
+| Prop           | Type               | Default | Description |
+|----------------|------------------|---------|------------|
+| `children`     | `ReactNode`       | -       | Content to drag |
+| `onTranslateX` | `(x:number)=>void` | -     | Callback for current drag value |
+| `maxDrag`      | `number`          | undefined | Maximum horizontal drag |
+
+---
+
+## Demo
+
+You can see a live demo here: [GitHub Pages / Demo link]()
+
+---
+
+## Contributing
+
+1. Fork the repository  
+2. Clone your fork  
+3. Install dependencies with `npm install`  
+4. Make your changes  
+5. Submit a pull request  
+
+---
+
+## License
+
+**MIT License** © [SMR.Mahinpour](https://github.com/SMRMahinpour)
+
