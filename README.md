@@ -97,7 +97,7 @@ export default App;
 
 ## Demo
 
-You can see a live demo here: [GitHub Pages / Demo link]()
+You can see a live demo here: soon!
 
 ---
 
