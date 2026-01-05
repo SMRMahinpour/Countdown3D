@@ -1,0 +1,17 @@
+.countdown-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* perfectly center */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.countdown {
+  position: relative;
+  display: flex;
+  transform-style: preserve-3d;
+  /* optional tilt */
+  /* animation: tilt 2s infinite alternate ease-in-out; */
+}
