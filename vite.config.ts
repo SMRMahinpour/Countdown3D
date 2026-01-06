@@ -8,11 +8,13 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, "src/index.ts"),
       name: "Countdown3D",
-      fileName: (format) => `countdown3d.${format}.js`,
+      formats: ["es", "cjs"], // ✅ generate both ESM and CJS
+      fileName: (format) => `index.${format}.js`, // ✅ matches package.json
     },
     rollupOptions: {
       external: ["react", "react-dom"],
       output: {
+        exports: "named",
         globals: {
           react: "React",
           "react-dom": "ReactDOM",
