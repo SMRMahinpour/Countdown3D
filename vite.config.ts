@@ -6,14 +6,13 @@ export default defineConfig({
   plugins: [react()],
   build: {
     lib: {
-      entry: path.resolve(__dirname, "src/index.ts"), // your main export file
+      entry: path.resolve(__dirname, "src/index.ts"),
       name: "Countdown3D",
-      formats: ["es", "cjs"], // ESM + CommonJS
+      formats: ["es", "cjs"], // ESM + CJS
       fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
-      // <-- critical: externalize react and react-dom
-      external: ["react", "react-dom"],
+      external: ["react", "react-dom"], // don't bundle React
       output: {
         exports: "named",
         globals: {

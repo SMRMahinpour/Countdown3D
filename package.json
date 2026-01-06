@@ -1,6 +1,6 @@
 {
   "name": "countdown3d",
-  "version": "1.0.7",
+  "version": "1.0.6",
   "description": "A 3D mechanical-style countdown timer built with React and CSS cubes",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
@@ -38,13 +38,5 @@
     "typescript": "^5.0.0",
     "vite": "^5.0.0",
     "eslint": "^9.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/smrmahinpour/countdown3d.git"
-  },
-  "bugs": {
-    "url": "https://github.com/smrmahinpour/countdown3d/issues"
-  },
-  "homepage": "https://github.com/smrmahinpour/countdown3d#readme"
+  }
 }
