@@ -1,6 +1,6 @@
 {
   "name": "countdown3d",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A 3D mechanical-style countdown timer built with React and CSS cubes",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
