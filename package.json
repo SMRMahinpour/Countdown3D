@@ -12,7 +12,7 @@
     "dev": "vite",
     "build": "vite build",
     "build:types": "tsc --project tsconfig.build.json",
-    "prepare": "npm run build:types && vite build",
+    "prepare": "vite build && npm run build:types",
     "preview": "vite preview",
     "lint": "eslint src --ext .ts,.tsx"
   },
